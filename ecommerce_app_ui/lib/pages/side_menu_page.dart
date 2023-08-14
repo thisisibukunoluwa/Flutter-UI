@@ -99,9 +99,7 @@ class _SideMenuPageState extends State<SideMenuPage> {
           child: ListTile(
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
+              Navigator.push(context, MaterialPageRoute(
                       builder: (_) => sideMenuItems[index]['page']));
             },
             minLeadingWidth: 10,

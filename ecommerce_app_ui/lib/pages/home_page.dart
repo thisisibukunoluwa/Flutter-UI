@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:ecommerce_app_ui/dummy/home_json.dart';
+import 'package:ecommerce_app_ui/pages/product_detail_page.dart';
 import 'package:ecommerce_app_ui/pages/side_menu_page.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app_ui/theme/colors.dart';
@@ -193,80 +194,93 @@ class _HomePageState extends State<HomePage> {
       children: List.generate(homeJson.length, (index) {
         return Column(
           children: [
-            FadeIn(
-              duration: Duration(milliseconds: 1000 * index),
-              child: Container(
-                width: (size.width - 50) / 2,
-                height: 220,
-                child: Stack(
-                  children: [
-                    Positioned(
-                      top: 20,
-                      child: Container(
-                        width: (size.width - 50) / 2,
-                        height: 200,
-                        decoration: BoxDecoration(
-                            color: secondary.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(30)),
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 15, right: 15, bottom: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Row(
-                                children: [
-                                  const Icon(
-                                    Icons.star_outline,
-                                    size: 18,
-                                    color: secondary,
-                                  ),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 3),
-                                    child: Text(
-                                      homeJson[index]['rate'],
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.w500),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => ProductDetailPage(
+                            name: homeJson[index]['name'],
+                            img: homeJson[index]['image'],
+                            price: homeJson[index]['price'],
+                            rate: homeJson[index]['rate'],
+                            colors:homeJson[index]['colors'])));
+              },
+              child: FadeIn(
+                duration: Duration(milliseconds: 1000 * index),
+                child: Container(
+                  width: (size.width - 50) / 2,
+                  height: 220,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        top: 20,
+                        child: Container(
+                          width: (size.width - 50) / 2,
+                          height: 200,
+                          decoration: BoxDecoration(
+                              color: secondary.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: 15, right: 15, bottom: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.star_outline,
+                                      size: 18,
+                                      color: secondary,
                                     ),
-                                  )
-                                ],
-                              ),
-                              Container(
-                                width: 35,
-                                height: 35,
-                                decoration: BoxDecoration(
-                                    color: white,
-                                    shape: BoxShape.circle,
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: secondary.withOpacity(0.15),
-                                          blurRadius: 5,
-                                          offset: const Offset(0, 5))
-                                    ]),
-                                child: const Center(
-                                  child: Icon(
-                                    Icons.shopping_bag_outlined,
-                                  ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 3),
+                                      child: Text(
+                                        homeJson[index]['rate'],
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    )
+                                  ],
                                 ),
-                              )
-                            ],
+                                Container(
+                                  width: 35,
+                                  height: 35,
+                                  decoration: BoxDecoration(
+                                      color: white,
+                                      shape: BoxShape.circle,
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: secondary.withOpacity(0.15),
+                                            blurRadius: 5,
+                                            offset: const Offset(0, 5))
+                                      ]),
+                                  child: const Center(
+                                    child: Icon(
+                                      Icons.shopping_bag_outlined,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Positioned(
-                      top: 5,
-                      child: Container(
-                        width: (size.width - 50) / 2,
-                        height: 180,
-                        child: Image.asset(homeJson[index]['image']),
+                      Positioned(
+                        top: 5,
+                        child: Container(
+                          width: (size.width - 50) / 2,
+                          height: 180,
+                          child: Image.asset(homeJson[index]['image']),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

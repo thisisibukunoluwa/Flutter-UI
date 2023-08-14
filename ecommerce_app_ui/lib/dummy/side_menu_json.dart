@@ -1,3 +1,4 @@
+import 'package:ecommerce_app_ui/pages/cart_page.dart';
 import 'package:ecommerce_app_ui/pages/home_page.dart';
 // import 'package:ecommerce_app_ui/pages/favourite_page.dart';
 // import 'package:ecommerce_app_ui/pages/my_cart_page.dart';
@@ -16,7 +17,7 @@ List sideMenuItems = [
         "label": "My Cart",
         "selected": false,
         "icon": LineIcons.shoppingCart,
-        "page":Center()
+        "page":CartPage()
       },
       {
         "label": "Favourite",

@@ -1,6 +1,7 @@
 import 'package:ecommerce_app_ui/pages/cart_page.dart';
 import 'package:ecommerce_app_ui/pages/favourite_page.dart';
 import 'package:ecommerce_app_ui/pages/home_page.dart';
+import 'package:ecommerce_app_ui/pages/order_history_page.dart';
 // import 'package:ecommerce_app_ui/pages/favourite_page.dart';
 // import 'package:ecommerce_app_ui/pages/my_cart_page.dart';
 // import 'package:ecommerce_app_ui/pages/order_page.dart';
@@ -30,6 +31,6 @@ List sideMenuItems = [
         "label": "Orders",
         "selected": false,
         "icon": LineIcons.history,
-        "page":Center()
+        "page": OrderHistoryPage()
       },
     ];

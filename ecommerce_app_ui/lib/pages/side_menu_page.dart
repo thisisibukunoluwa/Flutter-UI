@@ -153,5 +153,4 @@ class _SideMenuPageState extends State<SideMenuPage> {
       ],
     );
   }
-
 }

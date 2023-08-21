@@ -30,7 +30,7 @@ class ImageContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         image: DecorationImage(
             image: NetworkImage(
-              Article.articles[0].imageUrl,
+              imageUrl
             ),
             fit: BoxFit.cover),
       ),
